@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "z${CPU_JOB_NUM}" == "z" ] ; then
-	CPU_JOB_NUM=$(grep processor /proc/cpuinfo | awk '{field=$NF};END{print (field+1)/2}')
+	CPU_JOB_NUM=$(nproc --all)
 fi
 CLIENT=$(whoami)
 

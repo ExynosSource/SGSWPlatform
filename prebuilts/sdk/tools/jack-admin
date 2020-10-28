@@ -120,7 +120,7 @@ DELAY_CONNECT=3
 # Send command to Jack server
 DATE_CONNECT=$(date +%s)
 while true; do
-  HTTP_CODE=$(curl --fail --silent --output $JACK_EXIT --write-out %{http_code} --connect-timeout 5 --no-proxy 127.0.0.1:$SERVER_PORT_ADMIN http://127.0.0.1:$SERVER_PORT_ADMIN/$CMD)
+  HTTP_CODE=$(curl --fail --silent --output $JACK_EXIT --write-out %{http_code} --connect-timeout 5 127.0.0.1:$SERVER_PORT_ADMIN http://127.0.0.1:$SERVER_PORT_ADMIN/$CMD)
   CURL_CODE=$?
   if [ $CURL_CODE -eq 0 ]; then
     # No problem, let's go
